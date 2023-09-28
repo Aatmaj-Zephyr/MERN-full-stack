@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+
+
+    <div id="root"></div>
+
+
+    <script type="text/babel">
+
+
+function Stateset() {
+  const [state, setState] = React.useState("Off");
+    React.useEffect(() => {
+        if(state=="off"){
+          setState("on");
+        }
+        else if(state=="on"){
+          setState("off");
+        }
+        });
+       
+  return (<><h1>current state is {state}</h1><button onClick={()=>setState("on")}>{state}</button></>)
+}
+
+
+
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Stateset />);
+    </script>
+
+
+  </body>
+</html>
